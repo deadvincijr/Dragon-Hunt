@@ -3,8 +3,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-analytics.js";
-// Make sure to also import getDatabase, ref, set, onValue for Realtime Database functions
-import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-database.js";
+// Make sure to also import getDatabase, ref, set, onValue, and get for Realtime Database functions
+import { getDatabase, ref, set, onValue, get } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-database.js";
 
 
 // Your web app's Firebase configuration
@@ -31,11 +31,6 @@ const database = getDatabase(app);   // Realtime Database service
 
 // Get a reference to the specific path for Karl's health
 const karlHealthRef = ref(database, 'players/Karl/health');
-const karllocalx = 20
-set(ref(database, 'players/Karl/X'), karllocalx)
-const KarlXposRef = ref(database, 'players/Karl/X');
-KarlcloudX = get(KarlXposRef)
-alert(KarlcloudX);
 
 // Function to set Karl's health in the Realtime Database
 function setKarlHealth(healthValue) {
@@ -102,7 +97,34 @@ window.displayisleinfo = displayisleinfo;
 // --- Event listeners and real-time data display ---
 
 // Attach event listener to the DOM once it's loaded
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => { // Make this an async function!
+
+    // --- NEW: Simplified code to set Karl's X position and alert its value ---
+    const karllocalx = 20;
+    const KarlXposRef = ref(database, 'players/Karl/X');
+
+    try {
+        // 1. Set the value in the database
+        await set(KarlXposRef, karllocalx);
+        console.log("Karl's X position (players/Karl/X) set to 20 in DB.");
+
+        // 2. Get the value back from the database
+        const snapshot = await get(KarlXposRef);
+
+        // 3. Alert the value if it exists
+        if (snapshot.exists()) {
+            const KarlcloudX = snapshot.val();
+            alert("Karl's X position from Cloud: " + KarlcloudX); // This will alert "Karl's X position from Cloud: 20"
+        } else {
+            alert("Error: Karl's X position not found after setting it.");
+        }
+    } catch (error) {
+        console.error("An error occurred with Karl's X position operations:", error);
+        alert("An error occurred: " + error.message);
+    }
+    // --- END NEW SIMPLIFIED CODE ---
+
+
     // 1. Button to set Karl's health to a fixed 100
     const setHealthButton = document.getElementById('set-health-button');
     if (setHealthButton) {
@@ -140,5 +162,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
-
