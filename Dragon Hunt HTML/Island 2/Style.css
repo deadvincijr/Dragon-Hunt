@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+.people {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  border-style: solid;
+  border-color: black;
+  z-index: 1;
+}
+
+#you {
+  background-color: white;
+}
+
+
+
+#gamecontent {
+  border-color: black;
+  border-style: solid;
+  height: 800px;
+  width: 1300px;
+  position: relative; /* <-- Add this */
+  background-color: lime;
+}
+
+#obstacle1 {
+  left: 1170px;
+  width: 100px;
+  height: 100px;
+}
+
+#obstacle2 {
+  left: 300px;
+  top: 510px;
+  width: 800px;
+  height: 60px;
+}
+
+.obstacles {
+  position: absolute; /* <-- Add this */
+  border-style: solid;
+  border-width: 15px;
+  z-index: 1;
+
+}
+
+
+#hidespot1 {
+  width: 40px;
+  height: 40px;
+  top: 500px;
+  left: 40px;
+}
+
+#hidespot2 {
+  width: 40px;
+  height: 40px;
+  top: 500px;
+  left: 150px;
+}
+
+#hidespot3 {
+  width: 40px;
+  height: 40px;
+  top: 620px;
+  left: 40px;
+}
+
+#hidespot4 {
+  width: 40px;
+  height: 40px;
+  top: 620px;
+  left: 150px;
+}
+
+#hidespot5 {
+  width: 40px;
+  height: 40px;
+  top: 30px;
+  left: 710px;
+}
+
+#hidespot6 {
+  width: 40px;
+  height: 40px;
+  top: 680px;
+  left: 1110px;
+}
+
+.hidespots {
+position: absolute;
+border-style: dashed;
+border-width: 15px;
+border-color: red;
+z-index: 2;
+}
+
+
+
+
+
+
+#orangeamulet {
+  width: 20px;
+  height: 25px;
+  top: 630px;
+  left: 900px;
+}
+
+#sailboat {
+  width: 20px;
+  height: 25px;
+  top: 85px;
+  left: 900px;
+}
+
+.relics {
+  position: absolute;
+  background-color: aqua;
+  border-width: 3px;
+  border-style: solid;
+  border-color: black;
+  z-index: 1;
+}
+
+
+#tracks {
+  position: absolute;
+  border-style: solid;
+  border-color: black;
+  background-color: burlywood;
+  height: 430px;
+  width: 40px;
+  left: 800px;
+}
+
+#tracks2 {
+  position: absolute;
+  border-style: solid;
+  border-color: black;
+  background-color: burlywood;
+  width: 430px;
+  height: 40px;
+  left: 800px;
+  top: 430px;
+}
+
+
+/*#sightlimit {
+  position: absolute;
+  background-image: url("Clear hole.png");
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

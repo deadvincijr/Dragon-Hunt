@@ -1,0 +1,55 @@
+/* --- 1. Add these NEW styles at the top --- */
+
+.page-wrapper {
+  display: flex;          /* This puts the textbox and grid side-by-side */
+  gap: 20px;              /* This adds a 20px space between them */
+  
+  /* These lines center the whole layout on the page */
+  max-width: 1000px;  /* You can change this width */
+  margin: auto;
+}
+
+.textbox-area {
+  width: 300px;       /* Give the textbox column a fixed width */
+  flex-shrink: 0;     /* Prevents this column from shrinking */
+}
+
+/* This makes the actual textarea fill its container */
+.textbox-area textarea {
+  width: 100%;
+  box-sizing: border-box; /* Good practice for padding and borders */
+}
+
+
+/* --- 2. MODIFY your existing #island-container style --- */
+
+#island-container {
+  /* Your existing grid styles */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 0px;
+  column-gap: 0;
+  
+  /* This makes the grid take up the rest of the space */
+  flex-grow: 1;
+
+  /* This still keeps your squares from getting too big */
+  max-width: 600px;
+  
+  /* IMPORTANT: Remove this line! */
+  /* margin: auto; */ 
+}
+
+
+/* --- 3. Your .islands style stays the same --- */
+
+.islands {
+  border-style: solid;
+  border-color: black;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

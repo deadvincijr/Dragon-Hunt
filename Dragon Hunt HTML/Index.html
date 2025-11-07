@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Isle Selection</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    
+    <div class="page-wrapper">
+
+        <div class="textbox-area">
+            <h3>Island Notes</h3>
+            <p id="isledescriptionbox">Click on an island to be given information about it</p>
+        </div>
+
+        <div id="island-container">
+            <div id="island1" class="islands" onclick="displayisleinfo(1)">Snowy island</div>
+            <div id="island2" class="islands" onclick="displayisleinfo(2)">Dragon island</div>
+            <div id="island3" class="islands" onclick="displayisleinfo(3)">Rocky island</div>
+            <div id="island4" class="islands" onclick="displayisleinfo(4)">Teensy Weensy island</div>
+            <div id="island5" class="islands" onclick="displayisleinfo(5)">The Traditional island</div>
+            <div id="island6" class="islands" onclick="displayisleinfo(6)">Treasure island</div>
+            <div id="island7" class="islands" onclick="displayisleinfo(7)">Tornado island</div>
+            <div id="island8" class="islands" onclick="displayisleinfo(8)">Volcano island</div>
+            <div id="island9" class="islands" onclick="displayisleinfo(9)">Swamp island</div>
+        </div>
+    </div> 
+
+    <br><br> <!-- Added for spacing -->
+
+    <!-- Firebase-related UI elements for Karl's Health -->
+    <p id="karl-health-display">Karl's Health: Loading...</p>
+    <button id="set-health-button">Set Karl's Health to 100</button>
+    <br>
+    <label for="newKarlHealth">Set New Karl's Health:</label>
+    <input type="number" id="newKarlHealth" value="50" min="0">
+    <button id="update-health-button">Update Health</button>
+    
+    <!-- Load your main JavaScript file as a module -->
+    <script type="module" src="Script.js"></script>
+</body>
+</html>
