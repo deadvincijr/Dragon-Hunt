@@ -31,6 +31,10 @@ const database = getDatabase(app);   // Realtime Database service
 
 // Get a reference to the specific path for Karl's health
 const karlHealthRef = ref(database, 'players/Karl/health');
+let karllocalx = 20
+set(ref(database, 'players/Karl/X'), karllocalx);
+const KarlXposRef = ref(database, 'players/Karl/X');
+alert(KarlXposRef);
 
 // Function to set Karl's health in the Realtime Database
 function setKarlHealth(healthValue) {
